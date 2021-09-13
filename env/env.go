@@ -12,7 +12,7 @@ type Environment struct {
 
     MeiliSearch struct {
         Host      string `env:"MEILISEARCH_HOST"`
-        APIKey    string `env:"MEILISEARCH_ACCESSKEY"`
+        APIKey    string `env:"MEILISEARCH_ACCESS_KEY"`
     }
 
     MinIO struct {
