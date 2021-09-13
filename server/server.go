@@ -9,7 +9,7 @@ type Server struct {
     router  chi.Router
 }
 
-func NewServer(environment env.Environment) *Server {
+func NewServer(environment *env.Environment) *Server {
     s := new(Server)
 
     // setup router
