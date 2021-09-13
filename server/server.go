@@ -7,7 +7,7 @@ import "github.com/pcranaway/biblioteka/routes"
 
 type Server struct {
     router      chi.Router
-    environment Environment
+    environment env.Environment
 }
 
 func NewServer(environment env.Environment) *Server {
