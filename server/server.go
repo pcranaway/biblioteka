@@ -6,11 +6,14 @@ import "github.com/pcranaway/biblioteka/env"
 import "github.com/pcranaway/biblioteka/routes"
 
 type Server struct {
-    router  chi.Router
+    router      chi.Router
+    environment Environment
 }
 
-func NewServer(environment *env.Environment) *Server {
+func NewServer(environment env.Environment) *Server {
     s := new(Server)
+
+    s.environment = environment
 
     // setup router
     s.router = chi.NewRouter()

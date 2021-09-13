@@ -23,7 +23,7 @@ type Environment struct {
 
 }
 
-func Load() *Environment {
+func Load() Environment {
     var e Environment
 
     _, err := env.UnmarshalFromEnviron(&e)
@@ -31,5 +31,5 @@ func Load() *Environment {
         panic(err)
     }
 
-    return &e
+    return e
 }
