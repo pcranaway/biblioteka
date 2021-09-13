@@ -17,7 +17,7 @@ func NewServer(environment env.Environment) *Server {
 
     // setup router
     s.router = chi.NewRouter()
-    s.router.Get("/", routes.Index)
+    routes.SetupRoutes(s.router)
 
     return s
 }
