@@ -21,12 +21,13 @@ func NewServer(environment env.Environment) Server {
 
     s.environment = environment
 
-    // setup router
-    s.router = chi.NewRouter()
-    routes.SetupRoutes(s.router)
-
     // setup db
     s.database = *db.ConnectDatabase(&environment)
+
+    // setup router
+    s.router = chi.NewRouter()
+    s.router.Use(db.Middleware(&s.database))
+    routes.SetupRoutes(s.router)
 
     return *s
 }

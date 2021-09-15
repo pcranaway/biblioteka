@@ -1,11 +1,16 @@
 package routes
 
-import "net/http"
-import "github.com/flosch/pongo2/v4"
+import (
+	"net/http"
+
+	"github.com/flosch/pongo2/v4"
+)
 
 var indexTemplate = pongo2.Must(pongo2.FromFile("templates/index.html"))
 
 func Index(w http.ResponseWriter, r *http.Request) {
+    // db, _ := r.Context().Value("DB").(*gorm.DB)
+
     params := r.URL.Query()
 
     if params.Has("q") {
