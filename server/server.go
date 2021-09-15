@@ -16,19 +16,19 @@ type Server struct {
     database    gorm.DB
 }
 
-func NewServer(environment env.Environment) *Server {
+func NewServer(environment env.Environment) Server {
     s := new(Server)
 
     s.environment = environment
-
-    // connect to db
-    s.database = *db.ConnectDatabase(&environment)
 
     // setup router
     s.router = chi.NewRouter()
     routes.SetupRoutes(s.router)
 
-    return s
+    // setup db
+    s.database = *db.ConnectDatabase(&environment)
+
+    return *s
 }
 
 func (s *Server) Start() {
